@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Verify OTP</title>
+    <th:block th:insert="~{common/library :: head/link}"></th:block>
+    <th:block th:insert="~{common/library :: head/script}"></th:block>
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/confirm.css}" href="../../css/confirm.css">
+    <script th:src="@{/resources/js/verify_otp.js}" src="../../js/verify_otp.js"></script>
+
+</head>
+<body>
+<th:block th:insert="~{/fragments/spinner :: #loader}"></th:block>
+<div id="content">
+    <div class="container h-100">
+        <div class="row d-flex justify-content-center align-content-center">
+            <input type="hidden" id="type" th:value="${type}">
+            <input type="hidden" id="forwardUrl" th:value="${forwardUrl}">
+            <input type="hidden" id="contextPath" th:value="${contextPath}">
+
+            <th:block th:if="${send_otp_flag == '0'}">
+                <form action="javascript: void(0)" class="otp-form p2" name="otp-form">
+                    <div class="title">
+                        <h2>OTP Email confirm verification</h2>
+                        <p class="info">An OTP code has been sent to <strong id="email" th:text="${email}"></strong></p>
+                        <p class="msg">Please enter OTP code to verify</p>
+                    </div>
+                    <div class="otp-input-fields">
+                        <input type="number" class="otp__digit_email otp__field__1" onkeyup="confirmOTP(event, 'email')">
+                        <input type="number" class="otp__digit_email otp__field__2" onkeyup="confirmOTP(event, 'email')">
+                        <input type="number" class="otp__digit_email otp__field__3" onkeyup="confirmOTP(event, 'email')">
+                        <input type="number" class="otp__digit_email otp__field__4" onkeyup="confirmOTP(event, 'email')">
+                        <input type="number" class="otp__digit_email otp__field__5" onkeyup="confirmOTP(event, 'email')">
+                        <input type="number" class="otp__digit_email otp__field__6" onkeyup="confirmOTP(event, 'email')">
+                    </div>
+                </form>
+                <form action="javascript: void(0)" class="otp-form p2" name="otp-form">
+
+                    <div class="title">
+                        <h2>OTP SMS confirm verification</h2>
+                        <p class="info">An OTP code has been sent to phone: <strong id="phone" th:text="${phone}"></strong></p>
+                        <p class="msg">Please enter OTP code to verify</p>
+                    </div>
+                    <div class="otp-input-fields">
+                        <input type="number" class="otp__digit_phone otp__field__1" onkeyup="confirmOTP(event, 'phone')">
+                        <input type="number" class="otp__digit_phone otp__field__2" onkeyup="confirmOTP(event, 'phone')">
+                        <input type="number" class="otp__digit_phone otp__field__3" onkeyup="confirmOTP(event, 'phone')">
+                        <input type="number" class="otp__digit_phone otp__field__4" onkeyup="confirmOTP(event, 'phone')">
+                        <input type="number" class="otp__digit_phone otp__field__5" onkeyup="confirmOTP(event, 'phone')">
+                        <input type="number" class="otp__digit_phone otp__field__6" onkeyup="confirmOTP(event, 'phone')">
+                    </div>
+                </form>
+            </th:block>
+            <th:block th:if="${send_otp_flag == '1'}">
+                <form action="javascript: void(0)" class="otp-form p2" name="otp-form">
+
+                    <div class="title">
+                        <h2>OTP Email confirm verification</h2>
+                        <p class="info">An OTP code has been sent to <strong id="email" th:text="${email}"></strong></p>
+                        <p class="msg">Please enter OTP code to verify</p>
+                    </div>
+                    <div class="otp-input-fields">
+                        <input type="number" class="otp__digit_email otp__field__1" onkeyup="confirmOTP(event, 'email')">
+                        <input type="number" class="otp__digit_email otp__field__2" onkeyup="confirmOTP(event, 'email')">
+                        <input type="number" class="otp__digit_email otp__field__3" onkeyup="confirmOTP(event, 'email')">
+                        <input type="number" class="otp__digit_email otp__field__4" onkeyup="confirmOTP(event, 'email')">
+                        <input type="number" class="otp__digit_email otp__field__5" onkeyup="confirmOTP(event, 'email')">
+                        <input type="number" class="otp__digit_email otp__field__6" onkeyup="confirmOTP(event, 'email')">
+                    </div>
+                </form>
+            </th:block>
+            <th:block th:if="${send_otp_flag == '2'}">
+                <form action="javascript: void(0)" class="otp-form p2" name="otp-form">
+
+                    <div class="title">
+                        <h2>OTP SMS confirm verification</h2>
+                        <p class="info">An OTP code has been sent to phone: <strong id="phone" th:text="${phone}"></strong></p>
+                        <p class="msg">Please enter OTP code to verify</p>
+                    </div>
+                    <div class="otp-input-fields">
+                        <input type="number" class="otp__digit_phone otp__field__1" onkeyup="confirmOTP(event, 'phone')">
+                        <input type="number" class="otp__digit_phone otp__field__2" onkeyup="confirmOTP(event, 'phone')">
+                        <input type="number" class="otp__digit_phone otp__field__3" onkeyup="confirmOTP(event, 'phone')">
+                        <input type="number" class="otp__digit_phone otp__field__4" onkeyup="confirmOTP(event, 'phone')">
+                        <input type="number" class="otp__digit_phone otp__field__5" onkeyup="confirmOTP(event, 'phone')">
+                        <input type="number" class="otp__digit_phone otp__field__6" onkeyup="confirmOTP(event, 'phone')">
+                    </div>
+                </form>
+            </th:block>
+            <th:block th:if="${send_otp_flag == '4'}">
+                <form action="javascript: void(0)" class="otp-form p2" name="otp-form">
+                    <div class="title">
+                        <h2>OTP SMS/Email confirm verification</h2>
+                        <p class="info">
+                            An OTP code has been sent to
+                            <strong id="email" th:text="${email}"></strong> and
+                            <strong id="phone" th:text="${phone}"></strong>
+                        </p>
+                        <p class="msg">Please enter OTP code to verify</p>
+                    </div>
+                    <div class="otp-input-fields">
+                        <input type="number" class="otp__digit_email otp__field__1" onkeyup="confirmOTP(event, 'email,phone')">
+                        <input type="number" class="otp__digit_email otp__field__2" onkeyup="confirmOTP(event, 'email,phone')">
+                        <input type="number" class="otp__digit_email otp__field__3" onkeyup="confirmOTP(event, 'email,phone')">
+                        <input type="number" class="otp__digit_email otp__field__4" onkeyup="confirmOTP(event, 'email,phone')">
+                        <input type="number" class="otp__digit_email otp__field__5" onkeyup="confirmOTP(event, 'email,phone')">
+                        <input type="number" class="otp__digit_email otp__field__6" onkeyup="confirmOTP(event, 'email,phone')">
+                    </div>
+                </form>
+            </th:block>
+        </div>
+    </div>
+    </section>
+</div>
+<th:block th:insert="~{/modal/success :: #success}"></th:block>
+<th:block th:insert="~{/modal/failure :: #failure}"></th:block>
+</body>
+</html>

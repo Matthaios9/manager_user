@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirm Success</title>
+</head>
+<body>
+    <!-- Modal -->
+    <div class="modal fade" id="success" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content" style="border:none;border-radius: 5px;">
+                <div class="modal-header" style="background: #1ab394;border-top-left-radius: 5px;border-top-right-radius: 5px; justify-content: center">
+                    <h4 class="modal-title text-center" style="text-align: center">
+                        <img th:src="@{/resources/image/success_modal.png}" src="../../image/success_modal.png" alt="">
+                    </h4>
+<!--                    <button type="button" class="close" data-dismiss="modal" style="opacity:1;color:#fff;">&times;</button>-->
+                </div>
+                <div class="modal-body">
+                    <p id="modal-success-title" style="text-align:center;color:#1ab394;font-size:24px;font-weight:500;">Cheers! Confirm Successful!</p>
+                    <p id="redirectAfter" style="color:#555555;">Redirect after:&nbsp;
+                        <strong id="countdown" style="font-weight:500;font-size:16px;color: #222222;">5</strong>
+                        seconds
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<!-- Sidebar  -->
+<nav id="sidebar">
+    <div th:replace="~{/fragments/sidebar_header :: div.sidebar-header}"></div>
+
+    <ul class="list-unstyled components">
+        <li onclick="changeActiveClass(event)">
+            <a class="active" th:href="@{/app/dashboard}">Home page</a>
+        </li>
+        <li onclick="changeActiveClass(event)">
+            <a id="resetPassMenu" href="#" data-toggle="modal" data-target="#resetPassword">Reset password</a>
+        </li>
+    </ul>
+
+</nav>
+</body>
+</html>

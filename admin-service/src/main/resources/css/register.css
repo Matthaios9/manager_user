@@ -1,0 +1,36 @@
+.btn {
+    background-color: whitesmoke;
+    border-color: lightgray;
+    color: black;
+}
+.btn:hover {
+    border-color: papayawhip;
+    background-color: darkgrey;
+    color: black;
+}
+
+.errorMsg {
+    display: none;
+    color: red;
+}
+
+.errorMsgServer {
+    color: red;
+}
+
+#loader {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+}
+
+@media (min-width: 1200px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl {
+        max-width: 1500px;
+    }
+}
+
+li.select2-results__option strong.select2-results__group:hover {
+    background-color: #ddd;
+    cursor: pointer;
+}

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Enroll Company</title>
+    <th:block th:insert="~{common/library :: head/link}"></th:block>
+    <th:block th:insert="~{common/library :: head/script}"></th:block>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/select2.min.css}" href="../../css/select2.min.css" />
+    <script th:src="@{/resources/js/select2.min.js}" src="../../js/select2.min.js" ></script>
+
+<!--    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/iziToast.css}" href="../../css/iziToast.css" />-->
+<!--    <script th:src="@{/resources/js/iziToast.min.js}" src="../../js/iziToast.min.js" ></script>-->
+
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/register.css}" href="../../css/register.css">
+</head>
+<body>
+    <th:block th:insert="~{/fragments/spinner :: #loader}"></th:block>
+    <div id="content">
+        <section class="vh-100" style="background-color: #eee;">
+        <div class="container h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-lg-12 col-xl-11">
+                    <div class="card text-black" style="border-radius: 25px;">
+                        <div class="card-body p-md-5">
+                            <div class="row justify-content-center">
+                                <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+
+                                    <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Enroll Company</p>
+                                    <input type="hidden" id="contextPath" th:value="${contextPath}">
+                                    <form name="registerForm" class="mx-1 mx-md-4" onsubmit="return validateRegisterForm()" method="POST"
+                                          th:action="@{/app/register}" th:object="${user}">
+                                        <div class="d-flex flex-row align-items-center mb-4">
+                                            <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                            <div class="form-outline flex-fill mb-0">
+                                                <input type="text" name="name" id="form3Example1c" class="form-control" placeholder="Your Name" th:field="*{name}" required />
+                                                <p th:errorclass="errorMsgServer" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex flex-column align-items-center mb-4">
+                                            <div class="d-flex form-outline flex-fill mb-0">
+                                                <select id="phoneCountryCode" name="phoneCountryCode" class="form-control select flex-fill"  required>
+                                                    <option th:each="phone : ${phoneCountryCodeList}" th:value="${phone.phoneCode}" th:text="${phone.niceName} + ' +' + ${phone.phoneCode}"
+                                                            th:selected="${phone.phoneCode == '44'}"></option>
+                                                </select>
+                                                <input type="text" name="phone" id="phone" class="form-control flex-fill" placeholder="Your Phone" th:field="*{phone}" required/>
+                                            </div>
+                                            <div class="form-outline flex-fill mb-0">
+                                                <p class="errorMsg" id="phoneErrorMessage">Invalid phone! Please enter again.</p>
+                                                <p th:errorclass="errorMsgServer" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex flex-row align-items-center mb-4">
+                                            <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                            <div class="form-outline flex-fill mb-0">
+                                                <input type="email" name="email" id="form3Example3c" class="form-control" placeholder="Your Email" th:field="*{email}" required/>
+                                                <p class="errorMsg" id="emailErrorMessage">Invalid email! Please enter again.</p>
+                                                <p th:errorclass="errorMsgServer" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex flex-row align-items-center mb-4">
+                                            <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                            <div class="form-outline flex-fill mb-0">
+                                                <select id="companyType" name="companyType" class="form-control select" th:field="*{companyType}" onchange="changeCompanyType()" required>
+                                                    <option selected value="">Select Type</option>
+                                                    <option th:each="companyType : ${companyTypeList}" th:value="${companyType.id}" th:text="${companyType.name}"></option>
+                                                </select>
+                                                <p th:errorclass="errorMsgServer" th:if="${#fields.hasErrors('companyType')}" th:errors="*{companyType}"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex flex-row align-items-center mb-4">
+                                            <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                            <div id="divCompany" class="form-outline flex-fill mb-0">
+
+                                                <select id="company" name="company" class="form-control select" th:if="${isCompanyOther == 0}" required>
+                                                    <option selected value="">Select Company</option>
+                                                    <option th:each="company : ${companyList}" th:value="${company.id}" th:text="${company.name}" th:selected="${company.id == companyId}"></option>
+                                                </select>
+                                                <input th:if="${isCompanyOther == 1}" type="text" name="companyOther" id="companyOther" th:value="${companyOther}" class="form-control" placeholder="Enter company" required/>
+                                                <div id="companyErr" th:if="${#fields.hasErrors('global')}">
+                                                    <p th:each="err : ${#fields.errors('global')}" th:text="${err}" class="errorMsgServer" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex flex-row align-items-center mb-4">
+                                            <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                            <div class="form-outline flex-fill mb-0">
+                                                <select id="services" class="form-control select2" name="serviceList" th:field="*{serviceList}" multiple="multiple">
+<!--                                                    <optgroup th:each="serviceGroup : ${serviceList}" th:label="${serviceGroup.name}">-->
+<!--                                                        <option th:each="service : ${serviceGroup.webServiceList}" th:value="${service.id}" th:text="${service.name}"></option>-->
+<!--                                                    </optgroup>-->
+                                                </select>
+                                                <p th:errorclass="errorMsgServer" th:if="${#fields.hasErrors('serviceList')}" th:errors="*{serviceList}"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex flex-row align-items-center mb-4">
+                                            <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                            <div class="form-outline flex-fill mb-0">
+                                                <input type="text" name="extraField1" id="extraField1" class="form-control" placeholder="Extra field 1" th:field="*{extraField1}"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex flex-row align-items-center mb-4">
+                                            <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                            <div class="form-outline flex-fill mb-0">
+                                                <select id="extraField2" name="extraField2" class="form-control select" th:field="*{extraField2}">
+                                                    <option value="">Extra field 2</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex flex-row align-items-center mb-4">
+                                            <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                            <div class="form-outline flex-fill mb-0">
+                                                <textarea id="extraField3" name="extraField3" class="form-control" rows="4" cols="50" placeholder="Extra field 3" th:field="*{extraField3}"></textarea>
+<!--                                                <label class="form-label" for="extraField3">Extra field 3</label>-->
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                            <button type="submit" class="btn btn-primary btn-lg" >Register</button>
+                                        </div>
+
+                                    </form>
+
+                                </div>
+                                <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+
+                                    <img th:src="@{/resources/image/draw1.webp}" src="../../image/draw1.webp"
+                                         class="img-fluid" alt="Image">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
+<script th:src="@{/resources/js/register.js}" src="../../js/register.js" ></script>
+<script th:inline="javascript">
+    const serviceList = [[${serviceList}]];
+    $(document).ready(function() {
+        $('#services').select2({
+            placeholder: "Select service",
+            allowClear: true,
+            data: serviceList
+        });
+        $('#services').on('select2:open', function(e) {
+            $('#select2-services-results').on('click', function(event) {
+                event.stopPropagation();
+                console.log(event);
+                var data = $(event.target).html();
+                console.log(data);
+                var selectedOptionGroup = data.toString().trim();
+
+                var groupchildren = [];
+
+                for (var i = 0; i < serviceList.length; i++) {
+                    if (selectedOptionGroup.toString() === serviceList[i].text.toString()) {
+                        for (var j = 0; j < serviceList[i].children.length; j++) {
+                            groupchildren.push(serviceList[i].children[j].id);
+                        }
+                    }
+                }
+                var options = [];
+                options = $('#services').val();
+                if (options === null || options === '') {
+                    options = [];
+                }
+
+                for (var i = 0; i < groupchildren.length; i++) {
+                    var count = 0;
+                    for (var j = 0; j < options.length; j++) {
+                        if (options[j].toString() === groupchildren[i].toString()) {
+                            count++;
+                            break;
+
+                        }
+                    }
+                    if (count === 0) {
+                        options.push(groupchildren[i].toString());
+                    }
+                }
+                $('#services').val(options);
+                $('#services').trigger('change'); // Notify any JS components that the value changed
+                $('#services').select2('close');
+            });
+        });
+    })
+</script>
+</body>
+</html>

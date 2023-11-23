@@ -1,0 +1,293 @@
+2023-11-23 10:15:14,414  INFO [StartupInfoLogger] [  55] [] - Starting AdminServiceApplication using Java 18.0.2 on tungnx with PID 23096 (D:\TungNX\Private\upwork\setup_project\manager_user\ManagerUserU\admin-service\target\classes started by tungnx in D:\TungNX\Private\upwork\setup_project\manager_user\ManagerUserU)
+2023-11-23 10:15:14,422  INFO [SpringApplication] [ 635] [] - No active profile set, falling back to default profiles: default
+2023-11-23 10:15:15,139  INFO [RepositoryConfigurationDelegate] [ 132] [] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-23 10:15:15,383  INFO [RepositoryConfigurationDelegate] [ 201] [] - Finished Spring Data repository scanning in 234 ms. Found 17 JPA repository interfaces.
+2023-11-23 10:15:15,790  INFO [GenericScope] [ 283] [] - BeanFactory id=9b32e83f-c4e5-3fe3-94a6-d7a9a8bfd513
+2023-11-23 10:15:16,359  INFO [TomcatWebServer] [ 108] [] - Tomcat initialized with port(s): 8080 (http)
+2023-11-23 10:15:16,369  INFO [DirectJDKLog] [ 173] [] - Starting service [Tomcat]
+2023-11-23 10:15:16,370  INFO [DirectJDKLog] [ 173] [] - Starting Servlet engine: [Apache Tomcat/9.0.55]
+2023-11-23 10:15:16,551  INFO [DirectJDKLog] [ 173] [] - Initializing Spring embedded WebApplicationContext
+2023-11-23 10:15:16,552  INFO [ServletWebServerApplicationContext] [ 290] [] - Root WebApplicationContext: initialization completed in 2089 ms
+2023-11-23 10:15:16,968  INFO [HikariDataSource] [ 110] [] - HikariPool-1 - Starting...
+2023-11-23 10:15:17,096  INFO [HikariDataSource] [ 123] [] - HikariPool-1 - Start completed.
+2023-11-23 10:15:17,438 ERROR [TomcatStarter] [  61] [] - Error starting Tomcat context. Exception: org.springframework.beans.factory.UnsatisfiedDependencyException. Message: Error creating bean with name 'interceptorFilter': Unsatisfied dependency expressed through field 'historyAccessService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'historyAccessServiceImpl': Unsatisfied dependency expressed through field 'historyAccessRepository'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'historyAccessRepository' defined in base.repository.HistoryAccessRepository defined in @EnableJpaRepositories declared on JpaConfig: Cannot create inner bean '(inner bean)#45c90a05' of type [org.springframework.orm.jpa.SharedEntityManagerCreator] while setting bean property 'entityManager'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name '(inner bean)#45c90a05': Cannot resolve reference to bean 'entityManagerFactory' while setting constructor argument; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is java.lang.NoClassDefFoundError: javax/xml/bind/JAXBException
+2023-11-23 10:15:17,457  INFO [DirectJDKLog] [ 173] [] - Stopping service [Tomcat]
+2023-11-23 10:15:17,460  WARN [DirectJDKLog] [ 173] [] - The web application [admin] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@18.0.2/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@18.0.2/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@18.0.2/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@18.0.2/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@18.0.2/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@18.0.2/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@18.0.2/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@18.0.2/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@18.0.2/java.lang.Thread.run(Thread.java:833)
+2023-11-23 10:15:17,460  WARN [DirectJDKLog] [ 173] [] - The web application [admin] appears to have started a thread named [HikariPool-1 connection adder] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@18.0.2/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@18.0.2/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@18.0.2/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@18.0.2/java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:460)
+ java.base@18.0.2/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1061)
+ java.base@18.0.2/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@18.0.2/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@18.0.2/java.lang.Thread.run(Thread.java:833)
+2023-11-23 10:15:17,462  WARN [AbstractApplicationContext] [ 591] [] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+2023-11-23 10:15:17,462  INFO [HikariDataSource] [ 350] [] - HikariPool-1 - Shutdown initiated...
+2023-11-23 10:15:17,467  INFO [HikariDataSource] [ 352] [] - HikariPool-1 - Shutdown completed.
+2023-11-23 10:15:17,476  INFO [ConditionEvaluationReportLoggingListener] [ 136] [] - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-11-23 10:15:17,492 ERROR [SpringApplication] [ 819] [] - Application run failed
+org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:163)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:577)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:412)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:302)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1290)
+	at admin.AdminServiceApplication.main(AdminServiceApplication.java:12)
+Caused by: org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:142)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:104)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:473)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:206)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:182)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:160)
+	... 8 more
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'interceptorFilter': Unsatisfied dependency expressed through field 'historyAccessService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'historyAccessServiceImpl': Unsatisfied dependency expressed through field 'historyAccessRepository'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'historyAccessRepository' defined in base.repository.HistoryAccessRepository defined in @EnableJpaRepositories declared on JpaConfig: Cannot create inner bean '(inner bean)#45c90a05' of type [org.springframework.orm.jpa.SharedEntityManagerCreator] while setting bean property 'entityManager'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name '(inner bean)#45c90a05': Cannot resolve reference to bean 'entityManagerFactory' while setting constructor argument; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is java.lang.NoClassDefFoundError: javax/xml/bind/JAXBException
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:659)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:639)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:213)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:212)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:175)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:170)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAdaptableBeans(ServletContextInitializerBeans.java:155)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.<init>(ServletContextInitializerBeans.java:87)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getServletContextInitializerBeans(ServletWebServerApplicationContext.java:260)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.selfInitialize(ServletWebServerApplicationContext.java:234)
+	at org.springframework.boot.web.embedded.tomcat.TomcatStarter.onStartup(TomcatStarter.java:53)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5219)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1396)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1386)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:919)
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:835)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1396)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1386)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:919)
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:263)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:432)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:927)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:486)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:123)
+	... 13 more
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'historyAccessServiceImpl': Unsatisfied dependency expressed through field 'historyAccessRepository'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'historyAccessRepository' defined in base.repository.HistoryAccessRepository defined in @EnableJpaRepositories declared on JpaConfig: Cannot create inner bean '(inner bean)#45c90a05' of type [org.springframework.orm.jpa.SharedEntityManagerCreator] while setting bean property 'entityManager'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name '(inner bean)#45c90a05': Cannot resolve reference to bean 'entityManagerFactory' while setting constructor argument; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is java.lang.NoClassDefFoundError: javax/xml/bind/JAXBException
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:659)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:639)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1380)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1300)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:656)
+	... 55 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'historyAccessRepository' defined in base.repository.HistoryAccessRepository defined in @EnableJpaRepositories declared on JpaConfig: Cannot create inner bean '(inner bean)#45c90a05' of type [org.springframework.orm.jpa.SharedEntityManagerCreator] while setting bean property 'entityManager'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name '(inner bean)#45c90a05': Cannot resolve reference to bean 'entityManagerFactory' while setting constructor argument; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is java.lang.NoClassDefFoundError: javax/xml/bind/JAXBException
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveInnerBean(BeanDefinitionValueResolver.java:389)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:134)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1707)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1452)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1380)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1300)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:656)
+	... 69 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name '(inner bean)#45c90a05': Cannot resolve reference to bean 'entityManagerFactory' while setting constructor argument; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is java.lang.NoClassDefFoundError: javax/xml/bind/JAXBException
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:342)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:113)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveConstructorArguments(ConstructorResolver.java:693)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:510)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveInnerBean(BeanDefinitionValueResolver.java:374)
+	... 82 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is java.lang.NoClassDefFoundError: javax/xml/bind/JAXBException
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:330)
+	... 90 more
+Caused by: java.lang.NoClassDefFoundError: javax/xml/bind/JAXBException
+	at org.hibernate.boot.spi.XmlMappingBinderAccess.<init>(XmlMappingBinderAccess.java:43)
+	at org.hibernate.boot.MetadataSources.getXmlMappingBinderAccess(MetadataSources.java:115)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.prepare(MetadataBuildingProcess.java:110)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.<init>(EntityManagerFactoryBuilderImpl.java:269)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.<init>(EntityManagerFactoryBuilderImpl.java:182)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:52)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
+	... 97 more
+Caused by: java.lang.ClassNotFoundException: javax.xml.bind.JAXBException
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521)
+	... 109 more
+2023-11-23 10:16:07,315  INFO [StartupInfoLogger] [  55] [] - Starting AdminServiceApplication using Java 1.8.0_342 on tungnx with PID 23176 (D:\TungNX\Private\upwork\setup_project\manager_user\ManagerUserU\admin-service\target\classes started by tungnx in D:\TungNX\Private\upwork\setup_project\manager_user\ManagerUserU)
+2023-11-23 10:16:07,343  INFO [SpringApplication] [ 635] [] - No active profile set, falling back to default profiles: default
+2023-11-23 10:16:08,029  INFO [RepositoryConfigurationDelegate] [ 132] [] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-23 10:16:08,137  INFO [RepositoryConfigurationDelegate] [ 201] [] - Finished Spring Data repository scanning in 98 ms. Found 17 JPA repository interfaces.
+2023-11-23 10:16:08,589  INFO [GenericScope] [ 283] [] - BeanFactory id=9b32e83f-c4e5-3fe3-94a6-d7a9a8bfd513
+2023-11-23 10:16:09,203  INFO [TomcatWebServer] [ 108] [] - Tomcat initialized with port(s): 8080 (http)
+2023-11-23 10:16:09,211  INFO [DirectJDKLog] [ 173] [] - Starting service [Tomcat]
+2023-11-23 10:16:09,212  INFO [DirectJDKLog] [ 173] [] - Starting Servlet engine: [Apache Tomcat/9.0.55]
+2023-11-23 10:16:09,381  INFO [DirectJDKLog] [ 173] [] - Initializing Spring embedded WebApplicationContext
+2023-11-23 10:16:09,381  INFO [ServletWebServerApplicationContext] [ 290] [] - Root WebApplicationContext: initialization completed in 2000 ms
+2023-11-23 10:16:09,920  INFO [HikariDataSource] [ 110] [] - HikariPool-1 - Starting...
+2023-11-23 10:16:10,041  INFO [HikariDataSource] [ 123] [] - HikariPool-1 - Start completed.
+2023-11-23 10:16:11,221  INFO [AbstractEntityManagerFactoryBean] [ 437] [] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-23 10:16:11,713  WARN [JpaBaseConfiguration$JpaWebConfiguration] [ 219] [] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-23 10:16:12,628  INFO [DefaultSecurityFilterChain] [  51] [] - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@29d33f1, org.springframework.security.web.context.SecurityContextPersistenceFilter@19f99aaf, org.springframework.security.web.header.HeaderWriterFilter@314c28dc, org.springframework.web.filter.CorsFilter@77e5c765, org.springframework.security.web.csrf.CsrfFilter@750c23a3, org.springframework.security.web.authentication.logout.LogoutFilter@2634d000, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1be4a7e3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@70eb94d7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5daa621b, org.springframework.security.web.session.SessionManagementFilter@744f0e0b, org.springframework.security.web.access.ExceptionTranslationFilter@1cdad619]
+2023-11-23 10:16:13,852  INFO [TomcatWebServer] [ 220] [] - Tomcat started on port(s): 8080 (http) with context path '/admin'
+2023-11-23 10:16:14,339  INFO [StartupInfoLogger] [  61] [] - Started AdminServiceApplication in 7.728 seconds (JVM running for 9.01)
+2023-11-23 10:16:21,370  INFO [AbstractEntityManagerFactoryBean] [ 651] [] - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-11-23 10:16:21,374  INFO [HikariDataSource] [ 350] [] - HikariPool-1 - Shutdown initiated...
+2023-11-23 10:16:21,381  INFO [HikariDataSource] [ 352] [] - HikariPool-1 - Shutdown completed.
+2023-11-23 10:36:19,272  INFO [StartupInfoLogger] [  55] [] - Starting AdminServiceApplication using Java 1.8.0_342 on tungnx with PID 13028 (D:\TungNX\Private\upwork\setup_project\manager_user\ManagerUserU\admin-service\target\classes started by tungnx in D:\TungNX\Private\upwork\setup_project\manager_user\ManagerUserU)
+2023-11-23 10:36:19,280  INFO [SpringApplication] [ 635] [] - No active profile set, falling back to default profiles: default
+2023-11-23 10:36:19,969  INFO [RepositoryConfigurationDelegate] [ 132] [] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-23 10:36:20,072  INFO [RepositoryConfigurationDelegate] [ 201] [] - Finished Spring Data repository scanning in 92 ms. Found 17 JPA repository interfaces.
+2023-11-23 10:36:20,531  INFO [GenericScope] [ 283] [] - BeanFactory id=9b32e83f-c4e5-3fe3-94a6-d7a9a8bfd513
+2023-11-23 10:36:21,117  INFO [TomcatWebServer] [ 108] [] - Tomcat initialized with port(s): 8080 (http)
+2023-11-23 10:36:21,125  INFO [DirectJDKLog] [ 173] [] - Starting service [Tomcat]
+2023-11-23 10:36:21,125  INFO [DirectJDKLog] [ 173] [] - Starting Servlet engine: [Apache Tomcat/9.0.55]
+2023-11-23 10:36:21,295  INFO [DirectJDKLog] [ 173] [] - Initializing Spring embedded WebApplicationContext
+2023-11-23 10:36:21,295  INFO [ServletWebServerApplicationContext] [ 290] [] - Root WebApplicationContext: initialization completed in 1976 ms
+2023-11-23 10:36:21,842  INFO [HikariDataSource] [ 110] [] - HikariPool-1 - Starting...
+2023-11-23 10:36:21,968  INFO [HikariDataSource] [ 123] [] - HikariPool-1 - Start completed.
+2023-11-23 10:36:23,134  INFO [AbstractEntityManagerFactoryBean] [ 437] [] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-23 10:36:23,613  WARN [JpaBaseConfiguration$JpaWebConfiguration] [ 219] [] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-23 10:36:24,542  INFO [DefaultSecurityFilterChain] [  51] [] - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4d4600fb, org.springframework.security.web.context.SecurityContextPersistenceFilter@2f498f21, org.springframework.security.web.header.HeaderWriterFilter@185bf6e0, org.springframework.web.filter.CorsFilter@7352418c, org.springframework.security.web.csrf.CsrfFilter@6f89ad03, org.springframework.security.web.authentication.logout.LogoutFilter@36931450, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@19f99aaf, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1adf387e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@60ba6631, org.springframework.security.web.session.SessionManagementFilter@71cc0e35, org.springframework.security.web.access.ExceptionTranslationFilter@1238a074]
+2023-11-23 10:36:25,701  INFO [TomcatWebServer] [ 220] [] - Tomcat started on port(s): 8080 (http) with context path '/admin'
+2023-11-23 10:36:26,176  INFO [StartupInfoLogger] [  61] [] - Started AdminServiceApplication in 7.636 seconds (JVM running for 8.857)
+2023-11-23 10:36:34,719  INFO [AbstractEntityManagerFactoryBean] [ 651] [] - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-11-23 10:36:34,721  INFO [HikariDataSource] [ 350] [] - HikariPool-1 - Shutdown initiated...
+2023-11-23 10:36:34,725  INFO [HikariDataSource] [ 352] [] - HikariPool-1 - Shutdown completed.
+2023-11-23 14:39:02,589  INFO [StartupInfoLogger] [  55] [] - Starting AdminServiceApplication using Java 1.8.0_312 on DESKTOP-EHG7N96 with PID 9224 (C:\Users\matth\Downloads\setup_project\setup_project\manager_user\ManagerUserU\admin-service\target\classes started by matth in C:\Users\matth\Downloads\setup_project\setup_project\manager_user\ManagerUserU)
+2023-11-23 14:39:02,627  INFO [SpringApplication] [ 635] [] - No active profile set, falling back to default profiles: default
+2023-11-23 14:39:03,574  INFO [RepositoryConfigurationDelegate] [ 132] [] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-23 14:39:03,704  INFO [RepositoryConfigurationDelegate] [ 201] [] - Finished Spring Data repository scanning in 117 ms. Found 17 JPA repository interfaces.
+2023-11-23 14:39:04,387  INFO [GenericScope] [ 283] [] - BeanFactory id=69840d15-56ac-35ef-98d3-9421536304ce
+2023-11-23 14:39:05,186  INFO [TomcatWebServer] [ 108] [] - Tomcat initialized with port(s): 8080 (http)
+2023-11-23 14:39:05,198  INFO [DirectJDKLog] [ 173] [] - Starting service [Tomcat]
+2023-11-23 14:39:05,199  INFO [DirectJDKLog] [ 173] [] - Starting Servlet engine: [Apache Tomcat/9.0.55]
+2023-11-23 14:39:05,321  INFO [DirectJDKLog] [ 173] [] - Initializing Spring embedded WebApplicationContext
+2023-11-23 14:39:05,322  INFO [ServletWebServerApplicationContext] [ 290] [] - Root WebApplicationContext: initialization completed in 2644 ms
+2023-11-23 14:39:05,952  INFO [HikariDataSource] [ 110] [] - HikariPool-1 - Starting...
+2023-11-23 14:39:06,107  INFO [HikariDataSource] [ 123] [] - HikariPool-1 - Start completed.
+2023-11-23 14:39:07,741  INFO [AbstractEntityManagerFactoryBean] [ 437] [] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-23 14:39:08,737  WARN [JpaBaseConfiguration$JpaWebConfiguration] [ 219] [] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-23 14:39:10,613  INFO [DefaultSecurityFilterChain] [  51] [] - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@43a8bd35, org.springframework.security.web.context.SecurityContextPersistenceFilter@182fd26b, org.springframework.security.web.header.HeaderWriterFilter@6f89ad03, org.springframework.web.filter.CorsFilter@6fb219dd, org.springframework.security.web.csrf.CsrfFilter@399fd710, org.springframework.security.web.authentication.logout.LogoutFilter@41463c56, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7bd1098, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@8091d80, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@570b85dd, org.springframework.security.web.session.SessionManagementFilter@6f2bf657, org.springframework.security.web.access.ExceptionTranslationFilter@39420d59]
+2023-11-23 14:39:12,001  WARN [AbstractApplicationContext] [ 591] [] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2023-11-23 14:39:12,026  INFO [AbstractEntityManagerFactoryBean] [ 651] [] - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-11-23 14:39:12,029  INFO [HikariDataSource] [ 350] [] - HikariPool-1 - Shutdown initiated...
+2023-11-23 14:39:12,041  INFO [HikariDataSource] [ 352] [] - HikariPool-1 - Shutdown completed.
+2023-11-23 14:39:12,043  INFO [DirectJDKLog] [ 173] [] - Stopping service [Tomcat]
+2023-11-23 14:39:12,059  INFO [ConditionEvaluationReportLoggingListener] [ 136] [] - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-11-23 14:39:12,088 ERROR [LoggingFailureAnalysisReporter] [  40] [] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2023-11-23 14:39:41,256  INFO [StartupInfoLogger] [  55] [] - Starting AdminServiceApplication using Java 1.8.0_312 on DESKTOP-EHG7N96 with PID 16320 (C:\Users\matth\Downloads\setup_project\setup_project\manager_user\ManagerUserU\admin-service\target\classes started by matth in C:\Users\matth\Downloads\setup_project\setup_project\manager_user\ManagerUserU)
+2023-11-23 14:39:41,297  INFO [SpringApplication] [ 635] [] - No active profile set, falling back to default profiles: default
+2023-11-23 14:39:42,253  INFO [RepositoryConfigurationDelegate] [ 132] [] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-23 14:39:42,390  INFO [RepositoryConfigurationDelegate] [ 201] [] - Finished Spring Data repository scanning in 126 ms. Found 17 JPA repository interfaces.
+2023-11-23 14:39:43,062  INFO [GenericScope] [ 283] [] - BeanFactory id=69840d15-56ac-35ef-98d3-9421536304ce
+2023-11-23 14:39:43,903  INFO [TomcatWebServer] [ 108] [] - Tomcat initialized with port(s): 8081 (http)
+2023-11-23 14:39:43,916  INFO [DirectJDKLog] [ 173] [] - Starting service [Tomcat]
+2023-11-23 14:39:43,916  INFO [DirectJDKLog] [ 173] [] - Starting Servlet engine: [Apache Tomcat/9.0.55]
+2023-11-23 14:39:44,041  INFO [DirectJDKLog] [ 173] [] - Initializing Spring embedded WebApplicationContext
+2023-11-23 14:39:44,041  INFO [ServletWebServerApplicationContext] [ 290] [] - Root WebApplicationContext: initialization completed in 2685 ms
+2023-11-23 14:39:44,732  INFO [HikariDataSource] [ 110] [] - HikariPool-1 - Starting...
+2023-11-23 14:39:44,872  INFO [HikariDataSource] [ 123] [] - HikariPool-1 - Start completed.
+2023-11-23 14:39:46,453  INFO [AbstractEntityManagerFactoryBean] [ 437] [] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-23 14:39:47,092  WARN [JpaBaseConfiguration$JpaWebConfiguration] [ 219] [] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-23 14:39:48,645  INFO [DefaultSecurityFilterChain] [  51] [] - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@64e3bc2, org.springframework.security.web.context.SecurityContextPersistenceFilter@1734b1a, org.springframework.security.web.header.HeaderWriterFilter@363ba634, org.springframework.web.filter.CorsFilter@54ed249f, org.springframework.security.web.csrf.CsrfFilter@6b94c200, org.springframework.security.web.authentication.logout.LogoutFilter@640a6d4b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@44c2e8a8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6f89ad03, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4714f447, org.springframework.security.web.session.SessionManagementFilter@52963839, org.springframework.security.web.access.ExceptionTranslationFilter@8f374de]
+2023-11-23 14:39:50,103  INFO [TomcatWebServer] [ 220] [] - Tomcat started on port(s): 8081 (http) with context path '/admin'
+2023-11-23 14:39:50,427  INFO [StartupInfoLogger] [  61] [] - Started AdminServiceApplication in 10.036 seconds (JVM running for 11.751)
+2023-11-23 14:40:25,401  INFO [DirectJDKLog] [ 173] [4c4fc01aaa2979f3] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-23 14:40:25,401  INFO [FrameworkServlet] [ 525] [4c4fc01aaa2979f3] - Initializing Servlet 'dispatcherServlet'
+2023-11-23 14:40:25,406  INFO [FrameworkServlet] [ 547] [4c4fc01aaa2979f3] - Completed initialization in 3 ms
+2023-11-23 14:40:25,502  INFO [InterceptorFilter] [  55] [4c4fc01aaa2979f3] - RequestURI: /admin/login, Method: GET
+2023-11-23 14:40:25,528  INFO [InterceptorFilter] [  82] [4c4fc01aaa2979f3] - Authentication: {"principal":"anonymousUser","keyHash":22748537,"authorities":[{"role":"ROLE_ANONYMOUS"}],"details":{"remoteAddress":"0:0:0:0:0:0:0:1"},"authenticated":true}
+2023-11-23 14:40:25,529  INFO [InterceptorFilter] [  89] [4c4fc01aaa2979f3] - cookies: null
+2023-11-23 14:40:25,562  INFO [InterceptorFilter] [  55] [d979ceab2db2f53d] - RequestURI: /admin/app/login, Method: GET
+2023-11-23 14:40:25,621  INFO [RequestWrapper] [  87] [d979ceab2db2f53d] - [REQUEST BODY]: {}
+2023-11-23 14:40:26,342  INFO [InterceptorFilter] [  71] [d979ceab2db2f53d] - [RESPONSE BODY]: 
+2023-11-23 14:40:46,065  INFO [InterceptorFilter] [  55] [9c01494d35963e32] - RequestURI: /admin/app/login, Method: POST
+2023-11-23 14:40:46,073  INFO [RequestWrapper] [  87] [9c01494d35963e32] - [REQUEST BODY]: {"password":"******","emailOrPhone":"nxtung95@gmail.com","_csrf":"f0a4e39c-b378-4105-9df6-89b7885ad4fa"}
+2023-11-23 14:40:46,512  INFO [SendSMSServiceImpl] [  21] [9c01494d35963e32] - Send SMS to phone 0984496817 successfully, message: The verification number for verifying login is: 636465
+2023-11-23 14:40:46,613  INFO [InterceptorFilter] [  71] [9c01494d35963e32] - [RESPONSE BODY]: 
+2023-11-23 14:41:14,706  INFO [InterceptorFilter] [  55] [8a4873f21b782d32] - RequestURI: /admin/app/verification/confirm-otp-number, Method: POST
+2023-11-23 14:41:14,708  INFO [RequestWrapper] [  87] [8a4873f21b782d32] - [REQUEST BODY]: {"email":null,"phone":"0984496817","otp":"636465","type":"0"}
+2023-11-23 14:41:14,839  INFO [VerificationCodeController] [  85] [8a4873f21b782d32] - validateVerify: 00
+2023-11-23 14:41:14,859  INFO [VerificationCodeController] [ 107] [8a4873f21b782d32] - User:{"id":62,"name":"Nghiem Xuan Tung","phone":"0984496817","email":"nxtung95@gmail.com","password":"$2a$10$/fdwzcTnGG2fSl1kCw1lsOGjHw2aZnJkC.fpRyPZ1YZrKr6eGZQZO","role":{"id":1,"role":"ADMIN"},"verifyStatus":1,"status":1,"isFirstLogin":1,"isForcePassword":0,"createdDate":"Jul 30, 2023 1:05:20 PM","updatedDate":"Sep 21, 2023 4:57:25 PM"}
+2023-11-23 14:41:15,197  INFO [InterceptorFilter] [  68] [8a4873f21b782d32] - [RESPONSE BODY]: {"code":"00","phone":"0984496817","otpFlag":"2","forwardUrl":"/admin/app/dashboard","type":"0","message":"Success","userId":"phQ%3D","email":null}
+2023-11-23 14:41:20,306  INFO [InterceptorFilter] [  55] [54cd1a0dd98500c0] - RequestURI: /admin/app/dashboard, Method: GET
+2023-11-23 14:41:20,307  INFO [InterceptorFilter] [  82] [54cd1a0dd98500c0] - Authentication: {"principal":"phQ%3D","credentials":"nxtung95@gmail.com-0984496817","authorities":[{"role":"ADMIN"}],"authenticated":true}
+2023-11-23 14:41:20,310  INFO [InterceptorFilter] [  89] [54cd1a0dd98500c0] - cookies: [{"name":"XSRF-TOKEN","value":"f0a4e39c-b378-4105-9df6-89b7885ad4fa","version":0,"maxAge":-1,"secure":false,"httpOnly":false},{"name":"JSESSIONID","value":"D70B31EFAC100ACC50E63366D4123C18","version":0,"maxAge":-1,"secure":false,"httpOnly":false}]
+2023-11-23 14:41:20,311  INFO [RequestWrapper] [  87] [54cd1a0dd98500c0] - [REQUEST BODY]: {}
+2023-11-23 14:41:20,583  INFO [InterceptorFilter] [ 105] [54cd1a0dd98500c0] - [RESPONSE BODY]: 

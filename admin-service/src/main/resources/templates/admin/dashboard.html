@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <th:block th:insert="~{common/library :: head/link}"></th:block>
+    <th:block th:insert="~{common/library :: head/script}"></th:block>
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/dashboard.css}" href="../../../css/dashboard.css">
+    <script th:src="@{/resources/js/admin.js}" src="../../js/admin.js" ></script>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/reset_password.css}" href="../../css/reset_password.css">
+    <script th:src="@{/resources/js/reset_password.js}" src="../../js/reset_password.js"></script>
+</head>
+<body>
+<th:block th:insert="~{/fragments/spinner :: #loader}"></th:block>
+
+<div class="wrapper" style="display: none">
+    <!-- Sidebar -->
+    <th:block th:replace="~{/common/admin_menu :: nav}"></th:block>
+
+    <!-- Page Content  -->
+    <div id="content">
+        <!-- Header -->
+        <nav th:replace="~{/common/header :: nav}"></nav>
+
+        <!-- Content -->
+        <article>
+            <div class="container">
+                <h2 class="text-center">User/Enroll Company List</h2>
+                <input type="hidden" id="userId" name="userId" th:value="${userId}">
+                <input type="hidden" id="forwardUrl" name="forwardUrl" th:value="${forwardUrl}" readonly>
+                <input type="hidden" id="contextPath" th:value="${contextPath}" readonly>
+
+                <form id="frmSearch" style="margin-bottom: 100px">
+                    <div class="form-row d-flex justify-content-around align-items-center align-self-center">
+                        <div class="col-md-3">
+                            <input type="email" name="email" class="form-control" placeholder="Your email" th:value="${email}"/>
+                            <p class="errorMsg" id="emailErrorMessage">Invalid email! Please enter again.</p>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="phone" name="phone" class="form-control" placeholder="Your phone" th:value="${phone}"/>
+                            <p class="errorMsg" id="phoneErrorMessage">Invalid phone! Please enter again.</p>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="input" name="company" class="form-control" placeholder="Your company" th:value="${company}"/>
+                        </div>
+                        <div class="col-md-3">
+                            <button type="button" class="btn btn-info" onclick="return searchUserCompany()">Search</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th>Company Name</th>
+                            <th>Extra field 1</th>
+                            <th>Extra field 2</th>
+                            <th>Extra field 3</th>
+                            <th>Status</th>
+                            <th>Verify status</th>
+                            <th>WebService</th>
+                            <th>Updated Date</th>
+                            <th>ClientID</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="user : ${userList}">
+                            <td><span th:text="${user.name}"></span></td>
+                            <td><span th:text="${user.phone}"></span></td>
+                            <td><span th:text="${user.email}"></span></td>
+                            <td><span th:text="${user.company}"></span></td>
+                            <td><span th:text="${user.extraField1}"></span></td>
+                            <td><span th:text="${user.extraField2}"></span></td>
+                            <td><span th:text="${user.extraField3}"></span></td>
+                            <td>
+                                <th:block th:if="${user.status == 1}"><button class="btn btn-info" th:data-userid="${user.userId}" onclick="activeDeactive(event)">Activate</button></th:block>
+                                <th:block th:unless="${user.status == 1}"><button class="btn btn-danger" th:data-userid="${user.userId}" onclick="activeDeactive(event)">Deactivate</button></th:block>
+                            </td>
+                            <td><span th:text="${user.verifyStatus == 1 ? 'Verified' : 'Not verified'}"></span></td>
+                            <td><span th:text="${user.getWebService()}"></span></td>
+                            <td><span th:text="${#dates.format(user.updatedDate, 'dd/MM/yyyy')}"></span></td>
+                            <td><span th:text="${user.clientId}"></span></td>
+                            <td><button class="btn btn-info" th:data-userid="${user.userId}" onclick="regenerateClientId(event)">Regenerate ClientID</button></td>
+                            <td><button class="btn btn-info" th:data-userid="${user.userId}" onclick="viewEditForm(event)">Edit</button></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination control -->
+
+                <!-- Hardcoding the default page-size as 6. User can create a dropdown to select the different page-sizes. -->
+                <ul id="pagination" class="pagination" th:if="${totalPage > 1}">
+                    <li class="page-item" th:if="${currentPage != 1}">
+                        <a class="page-link"  th:href="@{'/app/dashboard?pageNumber=' + ${currentPage - 1} + '&email=' + ${email} + '&phone=' + ${phone} + '&company=' + ${company}}">Previous</a>
+                    </li>
+                    <li class="page-item" th:each="i: ${#numbers.sequence(1, totalPage)}" th:classappend="${i == currentPage ? ' active' : ''}">
+                        <a class="page-link" th:href="@{'/app/dashboard?pageNumber=' + ${i} + '&email=' + ${email} + '&phone=' + ${phone} + '&company=' + ${company}}">[[${i}]]</a>
+                    </li>
+                    <li class="page-item" th:if="${currentPage < totalPage}">
+                        <a class="page-link" th:href="@{'/app/dashboard?pageNumber=' + ${currentPage + 1} + '&email=' + ${email} + '&phone=' + ${phone} + '&company=' + ${company}}">Next</a>
+                    </li>
+                </ul>
+            </div>
+        </article>
+    </div>
+</div>
+<th:block th:insert="~{/modal/success :: #success}"></th:block>
+<th:block th:insert="~{/modal/failure :: #failure}"></th:block>
+<th:block th:insert="~{/modal/reset_password :: #resetPassword}"></th:block>
+
+<script th:inline="javascript">
+    const resetPassMenu = [[${resetPassMenu}]];
+    if (resetPassMenu && resetPassMenu == '1') {
+        $('#resetPassMenu').click();
+    }
+</script>
+</body>
+</html>
